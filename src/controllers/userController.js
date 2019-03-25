@@ -29,7 +29,7 @@ exports.createUser = (req, res, next) => {
       })
 
       user.save().then((user) => {
-        res.status(httpStatus.OK).json({
+        res.status(httpStatus.CREATED).json({
           status: true,
           data: user,
           message: 'Successfully registered'
