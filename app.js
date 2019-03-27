@@ -1,3 +1,5 @@
+require('dotenv').config({ path: __dirname + '/.env' });
+
 const express = require('express');
 const chalk = require('chalk');
 const debug = require('debug')('app');
