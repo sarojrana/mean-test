@@ -6,6 +6,7 @@ module.exports = {
   DB_USER: process.env.DB_USER,
   DB_PASS: process.env.DB_PASS,
   DB_AUTH_SOURCE: process.env.DB_AUTH_SOURCE,
+  MONGODB_URL: process.env.MONGODB_URL,
   SALT_ROUNDS: parseInt(process.env.SALT_ROUNDS),
   SECRET: process.env.SECRET
 };

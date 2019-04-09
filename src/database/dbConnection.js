@@ -1,13 +1,19 @@
 const debug = require('debug')('app:dbConnection');
 const Login = require('../models/Login');
 const bcrypt = require('bcrypt');
-const {DB_HOST, DB_PORT, DB_USER, DB_PASS, DB_AUTH_SOURCE, DB_NAME, SALT_ROUNDS} = require('../config/config');
+const { DB_HOST, DB_PORT, 
+        DB_USER, DB_PASS, 
+        DB_AUTH_SOURCE, DB_NAME, 
+        SALT_ROUNDS, MONGODB_URL } = require('../config/config');
 
 const saltRounds = SALT_ROUNDS;
-let mongoDB_URL = `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`;
-if(DB_USER && DB_AUTH_SOURCE){
-  `mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=${DB_AUTH_SOURCE}`;
-}
+let mongoDB_URL = MONGODB_URL;
+
+// let mongoDB_URL = `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`;
+// if(DB_USER && DB_AUTH_SOURCE){
+//   `mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=${DB_AUTH_SOURCE}`;
+// }
+
 // 'mongodb://localhost:27017/mean_test';
 
 const mongoose = require('mongoose').connect(mongoDB_URL, { useNewUrlParser: true})
