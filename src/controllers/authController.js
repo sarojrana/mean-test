@@ -51,3 +51,34 @@ exports.logout = function logout (req, res, next) {
     } else { throw { name: 'Unauthorized' }}
   }).catch(err => next(err));
 };
+
+
+exports.createLogin = (req, res, next) => {
+  if(req.body.email && req.body.password) {
+    bcrypt.hash(req.body.password, config.SALT_ROUNDS).then((hash) => {
+      const login = new Login({
+        email: req.body.email,
+        password: hash
+      })
+      return login.save()
+    }).then((login) => {
+      res.render('index', {
+        status: true,
+        data: null,
+        message: `${login.email} created successfully`
+      }) 
+    }).catch((err) => {
+      res.render('index', {
+        status: false,
+        data: null,
+        message: err.message
+      })
+    })
+  } else {
+    res.render('index', {
+      status: false,
+      data: null,
+      message: 'email & password field must not be empty'
+    })
+  }
+}

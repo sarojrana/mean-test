@@ -5,8 +5,7 @@ const Login = require('../models/Login');
 
 auth.use((req, res, next) => {
   const token = req.headers['token'];
-  console.log(token);
-  console.log(req.headers['authorization']);
+  
   if(!token){ throw 'token is missing in header'; }
   jwt.verify(token, config.SECRET, (err, decoded) => {
     if(err){ throw next(err); }

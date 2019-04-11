@@ -12,6 +12,7 @@ const UserSchema = new Schema({
   designation: { type: String, trim: true },
   experiences: [{ type: String, trim: true }],
   status: { type: String, enum: userStatus, default: 'ACTIVE', required: [true, 'status required'] },
+  login_id: { type: Schema.ObjectId, ref: 'Login', required: [true, 'required'] }
 }, {
   timestamps: true,
   versionKey: false

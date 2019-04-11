@@ -10,7 +10,7 @@ const unlinkAsync = promisify(fs.unlink)
  * register user
  */
 exports.createUser = (req, res, next) => {
-  console.log(req.headers['token'])
+  const loginId = req.body.LOGIN_ID;
   upload(req, res, (err) => {
     if(err) { next(err) }
     else {
@@ -25,9 +25,9 @@ exports.createUser = (req, res, next) => {
         gender: req.body.gender,
         designation: req.body.designation,
         experiences: req.body.experiences,
-        status: req.body.status
+        status: req.body.status,
+        login_id: loginId
       })
-
       user.save().then((user) => {
         res.status(httpStatus.CREATED).json({
           status: true,
@@ -60,6 +60,8 @@ exports.getUsers = (req, res, next) => {
   if(req.query.status) {
     query.status = req.query.status
   }
+  query.login_id = req.body.LOGIN_ID
+
   User.find(query).exec().then((users) => {
     users.forEach((user) => {
       if(user.image) {
