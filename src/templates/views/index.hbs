@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <!-- For Google -->
-  <meta name="description" content="real time dummy apis" />
+  <meta name="description" content="real time dummy apis for free" />
   <meta name="keywords" content="dummy api learn frontend frameword Angular React Vue" />
 
   <meta name="author" content="Saroj Rana" />
@@ -13,7 +13,7 @@
   <meta name="google-site-verification" content="bLiVmGVGYrhdaFigG0AdNq2dw-QyPog_9KYF_CTpl3E" />
 
   <!-- For Facebook -->
-  <meta property="og:title" content="Real Time Dummy APIs" />
+  <meta property="og:title" content="Real Time Dummy APIs for free" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="" />
   <meta property="og:url" content="" />
@@ -21,11 +21,11 @@
 
   <!-- For Twitter -->
   <meta name="twitter:card" content="Are you in need of dummy api to learn frontend framework? get api here" />
-  <meta name="twitter:title" content="Dummy APIs" />
+  <meta name="twitter:title" content="Dummy APIs for Free" />
   <meta name="twitter:description" content="Get dummy apis" />
   <meta name="twitter:image" content="" />
 
-  <title>Dummy API</title>
+  <title>Dummy REST API for Free</title>
 
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -57,30 +57,39 @@
           {{/if}}
           <h6> Please login (using your system e.g. POSTMAN) with registered credential to obtain 'token', which is required in header to make http request</h6>
         {{else}}
-        <div class="alert alert-danger" role="alert">
-          {{message}}
-        </div>
-        <h6>Submit the form to get started </h6>
-        <form action="/" method="POST">
-          <div class="form-group row">
-            <label for="email" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-10">
-              <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+          {{#if message}}
+            <div class="alert alert-danger" role="alert">
+              {{message}}
             </div>
-          </div>
-          <div class="form-group row">
-            <label for="password" class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-10">
-              <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+          {{/if}}
+          <h6> <u> <b> Submit the form to get started </b> </u> </h6>
+          <form action="/" method="POST">
+            <div class="form-group row">
+              <label for="email" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+              </div>
             </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-10">
-              <button type="submit" class="btn btn-primary">Register</button>
+            <div class="form-group row">
+              <label for="password" class="col-sm-2 col-form-label">Password</label>
+              <div class="col-sm-10">
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+              </div>
             </div>
-          </div>
-        </form>
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Register</button>
+              </div>
+            </div>
+          </form>
         {{/if}}
+        <hr>
+        <p> The <a href="https://sarojrana.github.io/mean-test-ang/login" target="_blank">link</a> 
+          below provides a simple interface that displays your data.</p> 
+        <p>Use your <b>email</b> and <b>password</b> to get access to your data.</p>
+        <a href="https://sarojrana.github.io/mean-test-ang/login" target="_blank">
+          https://sarojrana.github.io/mean-test-ang/login
+        </a>
       </div>
 
       <div class="col-md-8">
@@ -90,6 +99,7 @@
               <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true"
                   aria-controls="collapseOne">
+                  <span class="badge badge-warning">POST</span>
                   POST https://sarojrana-mean.herokuapp.com/login
                 </button>
               </h5>
@@ -110,7 +120,8 @@
               <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                   aria-controls="collapseOne">
-                  POST https://sarojrana-mean.herokuapp.com/users
+                  <span class="badge badge-warning">POST</span>
+                  https://sarojrana-mean.herokuapp.com/users
                 </button>
               </h5>
             </div>
@@ -134,7 +145,8 @@
               <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
                   aria-expanded="false" aria-controls="collapseTwo">
-                  PUT https://sarojrana-mean.herokuapp.com/users/:userId
+                  <span class="badge badge-info">PUT</span>
+                  https://sarojrana-mean.herokuapp.com/users/:userId
                 </button>
               </h5>
             </div>
@@ -150,7 +162,8 @@
               <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
                   aria-expanded="false" aria-controls="collapseThree">
-                  GET https://sarojrana-mean.herokuapp.com/users
+                  <span class="badge badge-success">GET</span>
+                  https://sarojrana-mean.herokuapp.com/users
                 </button>
               </h5>
             </div>
@@ -193,7 +206,8 @@
               <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
                   aria-expanded="false" aria-controls="collapseFour">
-                  GET https://sarojrana-mean.herokuapp.com/users/userId
+                  <span class="badge badge-success">GET</span>
+                  https://sarojrana-mean.herokuapp.com/users/:userId
                 </button>
               </h5>
             </div>
@@ -222,12 +236,33 @@
               </div>
             </div>
           </div>
+          <div class="card">
+            <div class="card-header" id="headingSix">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix"
+                  aria-expanded="false" aria-controls="collapseSix">
+                  <span class="badge badge-danger">DELETE</span> 
+                  https://sarojrana-mean.herokuapp.com/users/:userId
+                </button>
+              </h5>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+              <div class="card-body">
+                <p>RESPONSE</p>
+                <pre>
+                  {
+                    status: true,
+                    data: null,
+                    message: "Successfully deleted"
+                  }
+                </pre>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
   {{>footer}}
-</body>
-
+  </body>
 </html>
